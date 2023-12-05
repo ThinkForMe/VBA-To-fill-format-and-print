@@ -1,0 +1,108 @@
+Private Sub CommandButton1_Click()
+With ThisWorkbook.Sheets("template")
+For Each cell In Range("Hide_Blanks")
+If cell.Value = 0 Then
+cell.EntireRow.Hidden = True
+Else
+cell.EntireRow.Hidden = False
+End If
+Next cell
+If Range("J84").Value = 1 Then
+ActiveSheet.Shapes("Rectangle 10").Visible = True
+Else
+ActiveSheet.Shapes("Rectangle 10").Visible = False
+End If
+If Range("J85").Value = 1 Then
+ActiveSheet.Shapes("Rectangle 16").Visible = True
+Else
+ActiveSheet.Shapes("Rectangle 16").Visible = False
+End If
+If Range("J87").Value = 1 Or Range("J90") = 1 Then
+ActiveSheet.Shapes("Rectangle 17").Visible = True
+Else
+ActiveSheet.Shapes("Rectangle 17").Visible = False
+End If
+If Range("J96").Value = 1 Then
+ActiveSheet.Shapes("Rectangle 18").Visible = True
+Else
+ActiveSheet.Shapes("Rectangle 18").Visible = False
+End If
+If Range("J101").Value = 1 Then
+ActiveSheet.Shapes("Rectangle 19").Visible = True
+Else
+ActiveSheet.Shapes("Rectangle 19").Visible = False
+End If
+End With
+ActiveSheet.PageSetup.LeftFooter = Range("B8").Text
+ActiveSheet.PrintOut From:=1, To:=4
+ActiveSheet.Rows.Hidden = False
+
+End Sub
+
+
+Private Sub CommandButton2_Click()
+ Dim FilePath As String
+ 
+With ThisWorkbook.Sheets("template")
+For Each cell In Range("Hide_Blanks")
+If cell.Value = 0 Then
+cell.EntireRow.Hidden = True
+Else
+cell.EntireRow.Hidden = False
+End If
+Next cell
+If Range("J84").Value = 1 Then
+ActiveSheet.Shapes("Rectangle 10").Visible = True
+Else
+ActiveSheet.Shapes("Rectangle 10").Visible = False
+End If
+If Range("J85").Value = 1 Then
+ActiveSheet.Shapes("Rectangle 16").Visible = True
+Else
+ActiveSheet.Shapes("Rectangle 16").Visible = False
+End If
+If Range("J87").Value = 1 Or Range("J90") = 1 Then
+ActiveSheet.Shapes("Rectangle 17").Visible = True
+Else
+ActiveSheet.Shapes("Rectangle 17").Visible = False
+End If
+If Range("J96").Value = 1 Then
+ActiveSheet.Shapes("Rectangle 18").Visible = True
+Else
+ActiveSheet.Shapes("Rectangle 18").Visible = False
+End If
+If Range("J101").Value = 1 Then
+ActiveSheet.Shapes("Rectangle 19").Visible = True
+Else
+ActiveSheet.Shapes("Rectangle 19").Visible = False
+End If
+End With
+ActiveSheet.PageSetup.LeftFooter = Range("B8").Text
+ActiveSheet.ExportAsFixedFormat _
+Type:=xlTypePDF, _
+Filename:="H:\HR_Monster\HR\HR Projects\Total Reward Statements" & "\" & ActiveSheet.Range("B8").Value, _
+Quality:=xlQualityStandard, _
+IncludeDocProperties:=True, _
+IgnorePrintAreas:=False, _
+From:=1, To:=4, _
+OpenAfterPublish:=False
+
+ActiveSheet.Rows.Hidden = False
+
+End Sub
+
+Private Sub SpinButton1_SpinDown()
+If Me.ComboBox1.ListIndex = 0 Then Exit Sub
+Me.ComboBox1.ListIndex = Me.ComboBox1.ListIndex - 1
+Me.Label4.Caption = Me.Range("G74").Value
+End Sub
+
+Private Sub SpinButton1_SpinUp()
+If Me.ComboBox1.ListIndex = Me.ComboBox1.ListCount - 1 Then Exit Sub
+Me.ComboBox1.ListIndex = Me.ComboBox1.ListIndex + 1
+Me.Label4.Caption = Me.Range("G74").Value
+End Sub
+
+
+
+
