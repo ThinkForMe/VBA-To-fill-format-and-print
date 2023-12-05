@@ -80,7 +80,7 @@ End With
 ActiveSheet.PageSetup.LeftFooter = Range("B8").Text
 ActiveSheet.ExportAsFixedFormat _
 Type:=xlTypePDF, _
-Filename:="H:\HR_Monster\HR\HR Projects\Total Reward Statements" & "\" & ActiveSheet.Range("B8").Value, _
+Filename:="H:\HR_*******\HR\HR Projects\Total Reward Statements" & "\" & ActiveSheet.Range("B8").Value, _
 Quality:=xlQualityStandard, _
 IncludeDocProperties:=True, _
 IgnorePrintAreas:=False, _
